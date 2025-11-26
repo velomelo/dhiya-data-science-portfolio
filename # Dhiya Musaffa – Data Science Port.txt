@@ -1,0 +1,24 @@
+# Dhiya Musaffa – Data Science Portfolio
+JLPT N2 | Kaggle Expert | Siap Kerja di Jepang 2026
+
+### Kaggle Competitions
+| Competition       | Score      | Rank       | Link |
+|-------------------|------------|------------|------|
+| House Prices      | 0.12870    | Top 14%    | https://github.com/velomelo/house-prices-kaggle |
+| Titanic           | 0.78229    | Top ~25%   | https://github.com/velomelo/dhiya-data-science-portfolio/tree/main/titanic-kaggle-0.78229 |
+
+### Live App
+Titanic Survival Predictor (Streamlit)  
+https://titanic-predictor-dhiya.streamlit.app
+
+### Tech Stack
+Python, Pandas, Scikit-learn, XGBoost, RandomForest, Streamlit, Google Colab
+
+### 日本語
+KaggleでHouse Prices上位14%、Titanic上位25%を達成。  
+Streamlitで生存予測アプリも公開中。  
+2026年に日本でデータサイエンティストとして働きたいです！  
+JLPT N2保有 | 毎日勉強中
+
+連絡お待ちしています！  
+LinkedIn: https://www.linkedin.com/in/dhiya-musaffa-5a02b0396/
