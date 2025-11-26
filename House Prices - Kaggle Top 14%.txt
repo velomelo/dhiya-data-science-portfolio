@@ -1,0 +1,26 @@
+House Prices - Kaggle Top 14% (Score: 0.12870)
+Nama: Dhiya Musaffa | JLPT N3 
+
+Hasil
+- Public Score: 0.12870 → Top ~14% - Model: XGBoost Regressor + Feature Engineering
+- Bahasa pemrograman: Python (Google Colab)
+
+Feature Engineering yang saya buat
+- TotalSF, TotalBath, Age, RemodAge
+- TotalPorchSF, Has2ndFloor, HasGarage, HasPool
+- OneHotEncoding + StandardScaler
+
+Link penting
+- Kaggle Profile: https://www.kaggle.com/dhiyamusaffa
+- Submission: Score 0.12870 (XGBoost)
+- Notebook: https://colab.research.google.com/drive/1Ry7VqdvhC9SPi7uHTOibh_G9M-HLCo_I?usp=sharing
+
+日本語版説明
+家価格予測コンペ（Kaggle）で上位14%（スコア 0.12870）を達成しました。  
+XGBoostを使用し、特徴量エンジニアリングを自作。  
+日本でのデータサイエンティスト就職を目指してポートフォリオとして公開しています。
+
+JLPT N3保有 | 現在Kaggleを毎日勉強中
+連絡先: dmusaffa@gmail.com 
+
+よろしくお願いします！🙇‍♂️
