@@ -3,6 +3,11 @@ import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
+
+import streamlit as st
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
+
 @st.cache_resource
 def load_model():
     df = pd.read_csv('train.csv')
@@ -23,6 +28,37 @@ def load_model():
     model = RandomForestClassifier(n_estimators=100, random_state=42)
     model.fit(X, df['Survived'])
     return model, X.columns
+
+model, cols = load_model()
+
+st.title("Titanic Survival Predictor")
+st.write("Isi data → klik Predict")
+
+c1, c2 = st.columns(2)
+with c1:
+    pclass = st.selectbox("Kelas", [1,2,3])
+    sex = st.selectbox("Sex", ["male","female"])
+    age = st.slider("Umur", 0, 80, 30)
+    fare = st.number_input("Fare", 0, 512, 32)
+with c2:
+    emb = st.selectbox("Embarked", ["S","C","Q"])
+    sib = st.number_input("Saudara/Pasangan", 0, 8, 0)
+    parch = st.number_input("Ortu/Anak", 0, 6, 0)
+
+if st.button("Predict"):
+    fam = sib + parch + 1
+    alone = 1 if fam == 1 else 0
+    title = "Mr" if sex == "male" else "Miss"
+    inp = pd.DataFrame({'Pclass':[pclass],'Sex':[sex],'Age':[age],'Fare':[fare],
+                        'Embarked':[emb],'FamilySize':[fam],'IsAlone':[alone],'Title':[title]})
+    X_inp = pd.get_dummies(inp).reindex(columns=cols, fill_value=0)
+    pred = model.predict(X_inp)[0]
+    prob = model.predict_proba(X_inp)[0]
+    if pred==1:
+        st.success(f"SELAMAT! (Kemungkinan hidup: {prob[1]:.1%})")
+        st.balloons()
+    else:
+        st.error(f"GUGUR (Kemungkinan mati: {prob[0]:.1%})")
 
 model, cols = load_model()
 
