@@ -76,7 +76,7 @@ if st.button("Predict"):
     prob = model.predict_proba(X_inp)[0]
     
     if pred == 1:
-    st.success(f"SURVIVED! (Probability of survival: {prob[1]:.1%})")
-    st.balloons()
-else:
-    st.error(f"DID NOT SURVIVE (Probability of death: {prob[0]:.1%})")
+        st.success(f"SURVIVED! (Probability of survival: {prob[1]:.1%})")
+        st.balloons()
+    else:
+        st.error(f"DID NOT SURVIVE (Probability of death: {prob[0]:.1%})")
