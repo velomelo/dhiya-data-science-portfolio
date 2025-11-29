@@ -1,11 +1,13 @@
 
 import streamlit as st
 import pandas as pd
+import os
 from sklearn.ensemble import RandomForestClassifier
 
 @st.cache_resource
 def load_model():
-    df = pd.read_csv('train.csv')
+    base_dir = os.path.dirname(__file__)
+    df = pd.read_csv(os.path.join(base_dir, "train.csv"))
     test = pd.read_csv('test.csv')
     for d in [df, test]:
         d['FamilySize'] = d['SibSp'] + d['Parch'] + 1
