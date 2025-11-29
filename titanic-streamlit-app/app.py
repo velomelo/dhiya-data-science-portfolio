@@ -74,9 +74,9 @@ if st.button("Predict"):
     X_inp = pd.get_dummies(inp).reindex(columns=cols, fill_value=0)
     pred = model.predict(X_inp)[0]
     prob = model.predict_proba(X_inp)[0]
-
+    
     if pred == 1:
     st.success(f"SURVIVED! (Probability of survival: {prob[1]:.1%})")
     st.balloons()
-    else:
+else:
     st.error(f"DID NOT SURVIVE (Probability of death: {prob[0]:.1%})")
