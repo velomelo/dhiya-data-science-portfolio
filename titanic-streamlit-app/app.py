@@ -41,19 +41,19 @@ def load_model():
 model, cols = load_model()
 
 st.title("Titanic Survival Predictor")
-st.write("Isi data → klik Predict")
+st.write("Fill the information → click Predict")
 
 c1, c2 = st.columns(2)
 with c1:
-    pclass = st.selectbox("Kelas", [1, 2, 3])
+    pclass = st.selectbox("Class", [1, 2, 3])
     sex = st.selectbox("Sex", ["male", "female"])
-    age = st.slider("Umur", 0, 80, 30)
+    age = st.slider("Age", 0, 80, 30)
     fare = st.number_input("Fare", 0, 512, 32)
 
 with c2:
-    emb = st.selectbox("Embarked", ["S", "C", "Q"])
-    sib = st.number_input("Saudara/Pasangan", 0, 8, 0)
-    parch = st.number_input("Ortu/Anak", 0, 6, 0)
+    emb = st.selectbox("Port of Embarkation", ["S", "C", "Q"])
+    sib = st.number_input("Siblings/Spouses Aboard", 0, 8, 0)
+    parch = st.number_input("Parents/Children Aboard", 0, 6, 0)
 
 if st.button("Predict"):
     fam = sib + parch + 1
@@ -75,8 +75,8 @@ if st.button("Predict"):
     pred = model.predict(X_inp)[0]
     prob = model.predict_proba(X_inp)[0]
 
-    if pred == 1:
-        st.success(f"SELAMAT! (Kemungkinan hidup: {prob[1]:.1%})")
-        st.balloons()
-    else:
-        st.error(f"GUGUR (Kemungkinan mati: {prob[0]:.1%})")
+if pred == 1:
+    st.success(f"SURVIVED! (Probability of survival: {prob[1]:.1%})")
+    st.balloons()
+else:
+    st.error(f"DID NOT SURVIVE (Probability of death: {prob[0]:.1%})")
